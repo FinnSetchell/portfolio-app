@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Card } from "./ui/Card";
 
 interface ProjectCardProps {
   title: string;
@@ -18,7 +19,7 @@ export function ProjectCard({
   demoUrl,
 }: ProjectCardProps) {
   return (
-    <div className="overflow-hidden flex flex-col h-full border rounded-lg shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+    <Card className="overflow-hidden flex flex-col h-full" hoverEffect>
       <div className="aspect-video overflow-hidden">
         <img
           src={image || "/placeholder.svg"}
@@ -58,7 +59,7 @@ export function ProjectCard({
           </Link>
         </div>
       </div>
-    </div>
+    </Card>
   );
 }
 

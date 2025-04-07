@@ -1,29 +1,48 @@
+"use client";
+
 export default function Header() {
+  const handleScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Adjust this value based on your header height
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 flex justify-between items-center px-8 py-4 border-b border-gray-200 bg-white/70 backdrop-blur-md">
-      <a href="#top" className="text-xl font-bold">
+      <button
+        onClick={() => handleScroll("hero")}
+        className="text-xl font-bold text-gray-700 hover:text-black"
+      >
         Finn Setchell
-      </a>
+      </button>
       <nav className="flex gap-6">
-        <a href="#projects" className="text-gray-700 hover:text-black">
+        <button onClick={() => handleScroll("projects")} className="text-gray-700 hover:text-black">
           Projects
-        </a>
-        <a href="#skills" className="text-gray-700 hover:text-black">
+        </button>
+        <button onClick={() => handleScroll("skills")} className="text-gray-700 hover:text-black">
           Skills
-        </a>
-        <a href="#about" className="text-gray-700 hover:text-black">
+        </button>
+        <button onClick={() => handleScroll("about")} className="text-gray-700 hover:text-black">
           About
-        </a>
-        <a href="#contact" className="text-gray-700 hover:text-black">
+        </button>
+        <button onClick={() => handleScroll("contact")} className="text-gray-700 hover:text-black">
           Contact
-        </a>
+        </button>
       </nav>
-      <a
-        href="#contact"
+      <button
+        onClick={() => handleScroll("contact")}
         className="bg-black text-white rounded-full px-4 py-2 hover:bg-gray-800 transition"
       >
         Get in touch
-      </a>
+      </button>
     </header>
   );
 }

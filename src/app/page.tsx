@@ -3,6 +3,7 @@ import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import About from "../components/About";
 import Contact from "../components/Contact";
+import Modding from "../components/Modding";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <Projects />
       <Skills />
+      <Modding />
       <About />
       <Contact />
     </div>
