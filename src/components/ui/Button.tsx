@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import lightTheme from "../../styles/themes/lightTheme";
 
 interface ButtonProps {
-  children: ReactNode;
+  children?: ReactNode;
   onClick?: () => void;
   className?: string;
   type?: "button" | "submit" | "reset";

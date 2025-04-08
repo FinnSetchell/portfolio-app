@@ -8,12 +8,12 @@ import lightTheme from "../styles/themes/lightTheme";
 
 export default function Home() {
   const sections = [
-    { component: <Hero />, background: lightTheme.background },
-    { component: <Projects />, background: lightTheme.secondary },
-    { component: <Skills />, background: lightTheme.background },
-    { component: <Modding />, background: lightTheme.secondary },
-    { component: <About />, background: lightTheme.background },
-    { component: <Contact />, background: lightTheme.secondary },
+    { component: <Hero backgroundColor={lightTheme.background} />, background: lightTheme.background },
+    { component: <Projects backgroundColor={lightTheme.secondary} />, background: lightTheme.secondary },
+    { component: <Skills backgroundColor={lightTheme.background} />, background: lightTheme.background },
+    { component: <Modding backgroundColor={lightTheme.secondary} />, background: lightTheme.secondary },
+    { component: <About backgroundColor={lightTheme.background} />, background: lightTheme.background },
+    { component: <Contact backgroundColor={lightTheme.secondary} />, background: lightTheme.secondary },
   ];
 
   return (
