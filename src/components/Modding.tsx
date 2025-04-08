@@ -1,37 +1,77 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export default function Modding() {
-  const [currentImage, setCurrentImage] = useState(0);
-  const [images, setImages] = useState<string[]>([]);
+  const images = [
+    "/modding/modding1.png",
+    "/modding/modding2.png",
+    "/modding/modding3.png",
+    "/modding/modding4.png",
+    "/modding/modding5.png",
+    "/modding/modding6.png",
+    "/modding/modding7.png",
+  ]; // Replace with the actual filenames in the public/modding folder
+
+  const [modrinthTotalDownloads, setModrinthTotalDownloads] = useState<number | null>(null);
+  const [curseForgeDownloads, setCurseForgeDownloads] = useState<number | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = (direction: "prev" | "next") => {
+    const carousel = carouselRef.current;
+    if (carousel) {
+      const scrollAmount = carousel.offsetWidth / 3; // Adjust based on visible images
+      carousel.scrollBy({
+        left: direction === "next" ? scrollAmount : -scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await fetch("/api/modding-images");
-        const data = await response.json();
-        setImages(data);
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
-    };
-
-    fetchImages();
+    const interval = setInterval(() => {
+      handleScroll("next");
+    }, 3000); // Automatically scroll every 3 seconds
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    if (images.length > 0) {
-      const interval = setInterval(() => {
-        setCurrentImage((prev) => (prev + 1) % images.length);
-      }, 5000); // Change image every 5 seconds
-      return () => clearInterval(interval);
-    }
-  }, [images]);
+    const fetchModrinthTotalDownloads = async () => {
+      try {
+        const response = await fetch("/api/modrinth-downloads");
+        if (!response.ok) {
+          throw new Error(`Failed to fetch Modrinth downloads: ${response.statusText}`);
+        }
+        const data = await response.json();
+        setModrinthTotalDownloads(data.totalDownloads);
+      } catch (error) {
+        console.error("Error fetching Modrinth downloads:", error);
+      }
+    };
 
-  if (images.length === 0) {
-    return null; // Return nothing if images are not loaded yet
-  }
+    fetchModrinthTotalDownloads();
+  }, []);
+
+  useEffect(() => {
+    const fetchCurseForgeDownloads = async () => {
+      try {
+        const response = await fetch("/api/curseforge-downloads");
+        if (!response.ok) {
+          throw new Error(`Failed to fetch CurseForge downloads: ${response.statusText}`);
+        }
+        const data = await response.json();
+        setCurseForgeDownloads(data.totalDownloads); // Update state with total downloads
+      } catch (error) {
+        console.error("Error fetching CurseForge downloads:", error);
+      }
+    };
+
+    fetchCurseForgeDownloads();
+  }, []);
+
+  const formatNumber = (num: number): string => {
+    return num.toLocaleString(); // Adds commas to the number
+  };
 
   return (
     <section
@@ -48,22 +88,38 @@ export default function Modding() {
       </div>
 
       {/* Image Carousel */}
-      <div className="relative w-full h-[400px] mb-8">
-        <img
-          src={images[currentImage]}
-          alt={`Modding Image ${currentImage + 1}`}
-          className="w-full h-full object-cover"
-        />
+      <div className="relative w-full max-w-[1200px] mb-8">
+        <div
+          ref={carouselRef}
+          className="overflow-x-auto flex gap-4 py-4 scrollbar-hidden items-center"
+        >
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 flex items-center justify-center"
+              style={{
+                width: "calc(100% / 3)", // Adjust the number of visible images
+                maxWidth: "400px", // Optional: Limit the maximum width of each image
+              }}
+            >
+              <img
+                src={image}
+                alt={`Modding Image ${index + 1}`}
+                className="w-full h-auto object-contain rounded-lg shadow-lg"
+              />
+            </div>
+          ))}
+        </div>
         <button
-          onClick={() => setCurrentImage((prev) => (prev - 1 + images.length) % images.length)}
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white rounded-full p-2 hover:bg-gray-800 transition"
+          onClick={() => handleScroll("prev")}
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black text-white rounded-full p-3 hover:bg-gray-800 transition"
           aria-label="Previous Image"
         >
           &#8249;
         </button>
         <button
-          onClick={() => setCurrentImage((prev) => (prev + 1) % images.length)}
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white rounded-full p-2 hover:bg-gray-800 transition"
+          onClick={() => handleScroll("next")}
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black text-white rounded-full p-3 hover:bg-gray-800 transition"
           aria-label="Next Image"
         >
           &#8250;
@@ -75,28 +131,34 @@ export default function Modding() {
         <div className="flex flex-col items-center">
           <h3 className="text-xl font-bold">CurseForge</h3>
           <p className="text-2xl font-semibold text-gray-700">
-            {/* Replace with live data */}
-            1,234,567 Downloads
+            {curseForgeDownloads !== null && !isNaN(curseForgeDownloads)
+              ? `${formatNumber(curseForgeDownloads)} Downloads`
+              : "Loading..."}
           </p>
         </div>
         <div className="flex flex-col items-center">
           <h3 className="text-xl font-bold">Modrinth</h3>
           <p className="text-2xl font-semibold text-gray-700">
-            {/* Replace with live data */}
-            567,890 Downloads
+            {modrinthTotalDownloads !== null && !isNaN(modrinthTotalDownloads)
+              ? `${formatNumber(modrinthTotalDownloads)} Downloads`
+              : "Loading..."}
           </p>
         </div>
       </div>
 
       {/* Description */}
-      <div className="max-w-[700px] text-center">
+      <div className="max-w-[700px] text-left space-y-6">
         <p className="text-lg text-gray-700">
-          Modding is at the heart of my programming journey. I love creating
-          tools and experiences that enhance gameplay and bring new ideas to
-          life. From designing intricate systems to optimizing performance, I
-          strive to deliver mods that are both functional and fun. Whether it's
-          building for CurseForge or Modrinth, I enjoy contributing to the
-          Minecraft community and seeing players enjoy my work.
+          I’ve been developing Minecraft mods since I was a teenager, turning what started as a hobby into a full-on venture. Over time, my mods have grown in complexity, scale, and popularity — now totaling over <strong>58 million downloads</strong> across platforms.
+        </p>
+        <p className="text-lg text-gray-700">
+          My work focuses on expanding Minecraft’s gameplay with procedural structures, custom items, and gameplay mechanics built for performance, compatibility, and creativity. I take a modular, scalable approach to development — quickly building a base version, then expanding feature sets using version control (Git) and clean, maintainable code.
+        </p>
+        <p className="text-lg text-gray-700">
+          To support and formalize this work, I’ve established a sole proprietorship business. This allows me to collaborate with other developers, hire creators, and manage publishing through platforms like CurseForge. I also run modded servers, manage communities, and solve the many technical and creative challenges that come with live multiplayer environments.
+        </p>
+        <p className="text-lg text-gray-700">
+          Whether it’s creating automated tools for mod development, debugging complex mod interactions, or just building something players will love, modding has become both a creative outlet and a serious part of my journey as a developer.
         </p>
       </div>
     </section>
