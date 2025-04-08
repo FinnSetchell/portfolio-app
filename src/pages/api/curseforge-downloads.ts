@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import axios from "axios";
 import * as cheerio from "cheerio";
 
-const projectIds = ["656977", "892382", "967466", "1040210", "494413", "1153951", "688927", "732906", "497457", "510633", "956633", "969103", "501009", "1080238", "490340", "665609", "501579", "1218077"]; // Replace with your actual project IDs
+const projectIds = ["656977", "892382", "967466", "1040210", "494413", "1153951", "688927", "732906", "497457", "510633", "956633", "969103", "501009", "1080238", "490340", "665609", "501579", "1218077"];
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {

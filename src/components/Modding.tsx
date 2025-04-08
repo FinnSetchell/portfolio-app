@@ -11,7 +11,7 @@ export default function Modding() {
     "/modding/modding5.png",
     "/modding/modding6.png",
     "/modding/modding7.png",
-  ]; // Replace with the actual filenames in the public/modding folder
+  ];
 
   const [modrinthTotalDownloads, setModrinthTotalDownloads] = useState<number | null>(null);
   const [curseForgeDownloads, setCurseForgeDownloads] = useState<number | null>(null);
@@ -20,18 +20,27 @@ export default function Modding() {
   const handleScroll = (direction: "prev" | "next") => {
     const carousel = carouselRef.current;
     if (carousel) {
-      const scrollAmount = carousel.offsetWidth / 3; // Adjust based on visible images
-      carousel.scrollBy({
-        left: direction === "next" ? scrollAmount : -scrollAmount,
-        behavior: "smooth",
-      });
+      const scrollAmount = carousel.offsetWidth / 3;
+      if (direction === "next") {
+        if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth) {
+          carousel.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+      } else {
+        if (carousel.scrollLeft === 0) {
+          carousel.scrollTo({ left: carousel.scrollWidth, behavior: "smooth" });
+        } else {
+          carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        }
+      }
     }
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleScroll("next");
-    }, 3000); // Automatically scroll every 3 seconds
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -60,7 +69,7 @@ export default function Modding() {
           throw new Error(`Failed to fetch CurseForge downloads: ${response.statusText}`);
         }
         const data = await response.json();
-        setCurseForgeDownloads(data.totalDownloads); // Update state with total downloads
+        setCurseForgeDownloads(data.totalDownloads);
       } catch (error) {
         console.error("Error fetching CurseForge downloads:", error);
       }
@@ -70,7 +79,7 @@ export default function Modding() {
   }, []);
 
   const formatNumber = (num: number): string => {
-    return num.toLocaleString(); // Adds commas to the number
+    return num.toLocaleString();
   };
 
   return (
@@ -98,8 +107,8 @@ export default function Modding() {
               key={index}
               className="flex-shrink-0 flex items-center justify-center"
               style={{
-                width: "calc(100% / 3)", // Adjust the number of visible images
-                maxWidth: "400px", // Optional: Limit the maximum width of each image
+                width: "calc(100% / 3)",
+                maxWidth: "400px",
               }}
             >
               <img
@@ -149,10 +158,10 @@ export default function Modding() {
       {/* Description */}
       <div className="max-w-[700px] text-left space-y-6">
         <p className="text-lg text-gray-700">
-          I’ve been developing Minecraft mods since I was a teenager, turning what started as a hobby into a full-on venture. Over time, my mods have grown in complexity, scale, and popularity — now totaling over <strong>58 million downloads</strong> across platforms.
+          I’ve been developing Minecraft mods since I was a teenager, turning what started as a hobby into a full-on venture. Over time, my mods have grown in complexity, scale, and popularity — now totaling over <strong>58 million downloads</strong> across several platforms.
         </p>
         <p className="text-lg text-gray-700">
-          My work focuses on expanding Minecraft’s gameplay with procedural structures, custom items, and gameplay mechanics built for performance, compatibility, and creativity. I take a modular, scalable approach to development — quickly building a base version, then expanding feature sets using version control (Git) and clean, maintainable code.
+          My work focuses on expanding Minecraft’s gameplay with procedural structures, custom items, and gameplay mechanics built for performance, compatibility, and creativity. I take a modular, scalable approach to development — quickly building a base version, then expanding on features.
         </p>
         <p className="text-lg text-gray-700">
           To support and formalize this work, I’ve established a sole proprietorship business. This allows me to collaborate with other developers, hire creators, and manage publishing through platforms like CurseForge. I also run modded servers, manage communities, and solve the many technical and creative challenges that come with live multiplayer environments.

@@ -19,7 +19,7 @@ export default function Projects() {
           title="E-Commerce Platform"
           description="A full-stack e-commerce solution with payment processing, user authentication, and inventory management."
           tags={["React", "Next.js", "Tailwind"]}
-          image=""
+          image="projects/ecommerce.png"
           githubUrl="https://github.com/FinnSetchell/project1"
           demoUrl="https://project1-demo.com"
         />

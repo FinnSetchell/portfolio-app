@@ -6,7 +6,7 @@ import { Card } from "./ui/Card";
 interface SkillCardProps {
   name: string;
   description: string;
-  icon?: ReactNode; // Optional icon
+  icon?: ReactNode;
 }
 
 export function SkillCard({ name, description, icon }: SkillCardProps) {

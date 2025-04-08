@@ -11,7 +11,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const moddingFolder = path.join(process.cwd(), "public", "modding");
     const files = await fs.readdir(moddingFolder);
 
-    // Filter out non-image files (optional)
     const imagePaths = files
       .filter((file) => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
       .map((file) => `/modding/${file}`);

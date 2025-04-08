@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 interface CardProps {
   children: ReactNode;
   className?: string;
-  hoverEffect?: boolean; // Optional hover effect
+  hoverEffect?: boolean;
 }
 
 export function Card({ children, className = "", hoverEffect = false }: CardProps) {
