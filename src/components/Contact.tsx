@@ -1,16 +1,18 @@
 import { Card } from "./ui/Card";
+import { Button } from "./ui/Button";
 
-export default function Contact() {
+export default function Contact({ backgroundColor }: { backgroundColor: string }) {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col items-center justify-center bg-white px-4"
+      style={{ backgroundColor }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 text-gray-900"
     >
       <div className="flex flex-col items-center justify-center gap-4 text-center mb-6">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
           Get In Touch
         </h2>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
           Have a project in mind or want to chat? Feel free to reach out!
         </p>
       </div>
@@ -67,12 +69,9 @@ export default function Contact() {
                 placeholder="Your message here..."
               />
             </div>
-            <button
-              type="submit"
-              className="w-full bg-black text-white rounded-md py-2 hover:bg-gray-800 transition"
-            >
+            <Button type="submit" variant="black" fullWidth>
               Send Message
-            </button>
+            </Button>
           </form>
         </Card>
       </div>

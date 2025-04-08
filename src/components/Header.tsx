@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "./ui/Button";
+
 export default function Header() {
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
@@ -24,25 +26,46 @@ export default function Header() {
         Finn Setchell
       </button>
       <nav className="flex gap-6">
-        <button onClick={() => handleScroll("projects")} className="text-gray-700 hover:text-black">
+        <Button
+          onClick={() => handleScroll("projects")}
+          variant="white"
+          outline={false}
+          className="text-gray-700"
+        >
           Projects
-        </button>
-        <button onClick={() => handleScroll("skills")} className="text-gray-700 hover:text-black">
+        </Button>
+        <Button
+          onClick={() => handleScroll("skills")}
+          variant="white"
+          outline={false}
+          className="text-gray-700"
+        >
           Skills
-        </button>
-        <button onClick={() => handleScroll("about")} className="text-gray-700 hover:text-black">
+        </Button>
+        <Button
+          onClick={() => handleScroll("about")}
+          variant="white"
+          outline={false}
+          className="text-gray-700"
+        >
           About
-        </button>
-        <button onClick={() => handleScroll("contact")} className="text-gray-700 hover:text-black">
+        </Button>
+        <Button
+          onClick={() => handleScroll("contact")}
+          variant="white"
+          outline={false}
+          className="text-gray-700"
+        >
           Contact
-        </button>
+        </Button>
       </nav>
-      <button
+      <Button
         onClick={() => handleScroll("contact")}
-        className="bg-black text-white rounded-full px-4 py-2 hover:bg-gray-800 transition"
+        variant="black"
+        className="rounded-full px-4 py-2"
       >
         Get in touch
-      </button>
+      </Button>
     </header>
   );
 }

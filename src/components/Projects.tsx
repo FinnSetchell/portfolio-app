@@ -1,16 +1,17 @@
 import { ProjectCard } from "./ProjectCards";
 
-export default function Projects() {
+export default function Projects({ backgroundColor }: { backgroundColor: string }) {
   return (
     <section
       id="projects"
-      className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4"
+      style={{ backgroundColor }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 text-gray-900"
     >
       <div className="flex flex-col items-center justify-center gap-4 text-center mb-6">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
           Projects
         </h2>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
           A showcase of my work and contributions.
         </p>
       </div>
@@ -54,6 +55,14 @@ export default function Projects() {
           image=""
           githubUrl="https://github.com/FinnSetchell/chat-app"
           demoUrl="https://chat-app-demo.com"
+        />
+        <ProjectCard
+          title="Fitness Tracker"
+          description="A fitness tracking app to monitor workouts, progress, and goals."
+          tags={["React Native", "Firebase"]}
+          image=""
+          githubUrl="https://github.com/FinnSetchell/fitness-tracker"
+          demoUrl="https://fitness-tracker-demo.com"
         />
         <ProjectCard
           title="Fitness Tracker"

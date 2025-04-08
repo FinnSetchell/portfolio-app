@@ -1,8 +1,9 @@
-export default function About() {
+export default function About({ backgroundColor }: { backgroundColor: string }) {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gray-100 px-4"
+      style={{ backgroundColor }}
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4 text-gray-900"
     >
       <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
         <img
@@ -16,7 +17,7 @@ export default function About() {
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
             About Me
           </h2>
-          <p className="text-gray-500 md:text-xl dark:text-gray-400">
+          <p className="text-gray-500 md:text-xl">
             Learn more about my background and what drives me.
           </p>
         </div>

@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 
-export default function Modding() {
+export default function Modding({ backgroundColor }: { backgroundColor: string }) {
   const images = [
     "/modding/modding1.png",
     "/modding/modding2.png",
@@ -85,19 +85,20 @@ export default function Modding() {
   return (
     <section
       id="modding"
-      className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4 py-16"
+      style={{ backgroundColor }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 py-16 sm:py-24 lg:py-32 text-gray-900"
     >
       <div className="flex flex-col items-center justify-center gap-4 text-center mb-8">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
           Modding
         </h2>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
           Highlighting my passion for creating Minecraft mods and tools.
         </p>
       </div>
 
       {/* Image Carousel */}
-      <div className="relative w-full max-w-[1200px] mb-8">
+      <div className="relative w-full max-w-[1200px] mb-8 sm:mb-12 lg:mb-16">
         <div
           ref={carouselRef}
           className="overflow-x-auto flex gap-4 py-4 scrollbar-hidden items-center"
@@ -136,7 +137,7 @@ export default function Modding() {
       </div>
 
       {/* Download Counters */}
-      <div className="flex gap-8 mb-8">
+      <div className="flex gap-8 mb-8 sm:mb-12 lg:mb-16">
         <div className="flex flex-col items-center">
           <h3 className="text-xl font-bold">CurseForge</h3>
           <p className="text-2xl font-semibold text-gray-700">
@@ -156,7 +157,7 @@ export default function Modding() {
       </div>
 
       {/* Description */}
-      <div className="max-w-[700px] text-left space-y-6">
+      <div className="max-w-[700px] text-left space-y-6 sm:space-y-8 lg:space-y-10">
         <p className="text-lg text-gray-700">
           I’ve been developing Minecraft mods since I was a teenager, turning what started as a hobby into a full-on venture. Over time, my mods have grown in complexity, scale, and popularity — now totaling over <strong>58 million downloads</strong> across several platforms.
         </p>

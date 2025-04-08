@@ -1,8 +1,11 @@
-export default function Hero() {
+import { Button } from "./ui/Button";
+
+export default function Hero({ backgroundColor }: { backgroundColor: string }) {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center bg-white text-center px-4"
+      style={{ backgroundColor }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 text-center text-gray-900"
     >
       <h1 className="text-5xl font-bold mb-4">
         Creative Developer at the Intersection of Code & Design
@@ -12,22 +15,20 @@ export default function Hero() {
         tools and experiences rooted in problem-solving and engineering.
       </p>
       <div className="flex gap-4">
-        <a
-          href="https://discord.gg/S5nffJbuvA"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-black text-white rounded-full px-6 py-3 flex items-center gap-2 hover:bg-gray-800 transition"
+        <Button
+          variant="black"
+          className="rounded-full px-6 py-3 flex items-center gap-2"
+          icon={<i className="fab fa-discord"></i>}
         >
-          <i className="fab fa-discord"></i> Discord
-        </a>
-        <a
-          href="https://github.com/FinnSetchell"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-white text-black border border-black rounded-full px-6 py-3 flex items-center gap-2 hover:bg-gray-800 hover:text-white transition"
+          Discord
+        </Button>
+        <Button
+          variant="white"
+          className="rounded-full px-6 py-3 flex items-center gap-2 border border-black"
+          icon={<i className="fab fa-github"></i>}
         >
-          <i className="fab fa-github"></i> GitHub
-        </a>
+          GitHub
+        </Button>
       </div>
     </section>
   );

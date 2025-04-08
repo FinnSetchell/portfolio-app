@@ -1,16 +1,17 @@
 import { SkillCard } from "./SkillCards";
 
-export default function Skills() {
+export default function Skills({ backgroundColor }: { backgroundColor: string }) {
   return (
     <section
       id="skills"
-      className="min-h-screen flex flex-col items-center justify-center bg-white px-4 py-16 pt-16"
+      style={{ backgroundColor }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 text-gray-900 py-16 pt-16"
     >
       <div className="flex flex-col items-center justify-center gap-4 text-center mb-8">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
           Skills & Technologies
         </h2>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
           The tools and technologies I work with
         </p>
       </div>
