@@ -1,17 +1,19 @@
+"use client";
+
 import { ProjectCard } from "./ProjectCards";
 
-export default function Projects({ backgroundColor }: { backgroundColor: string }) {
+export default function Projects() {
   return (
     <section
       id="projects"
-      style={{ backgroundColor }}
-      className="min-h-screen flex flex-col items-center justify-center px-4 text-gray-900"
+      style={{ backgroundColor: "var(--secondary)", color: "var(--text)" }}
+      className="min-h-screen flex flex-col items-center justify-center px-4"
     >
       <div className="flex flex-col items-center justify-center gap-4 text-center mb-6">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl" style={{ color: "var(--headerText)" }}>
           Projects
         </h2>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+        <p className="mx-auto max-w-[700px] md:text-xl" style={{ color: "var(--secondaryText)" }}>
           A showcase of my work and contributions.
         </p>
       </div>

@@ -1,16 +1,18 @@
+"use client";
+
 import { Button } from "./ui/Button";
 
-export default function Hero({ backgroundColor }: { backgroundColor: string }) {
+export default function Hero() {
   return (
     <section
       id="hero"
-      style={{ backgroundColor }}
-      className="min-h-screen flex flex-col items-center justify-center px-4 text-center text-gray-900"
+      style={{ backgroundColor: "var(--background)", color: "var(--text)" }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 text-center"
     >
-      <h1 className="text-5xl font-bold mb-4">
+      <h1 className="text-5xl font-bold mb-4" style={{ color: "var(--headerText)" }}>
         Creative Developer at the Intersection of Code & Design
       </h1>
-      <p className="text-lg text-gray-700 mb-6">
+      <p className="text-lg mb-6" style={{ color: "var(--secondaryText)" }}>
         From Minecraft mods to CAD-based builds, I create efficient, engaging
         tools and experiences rooted in problem-solving and engineering.
       </p>
@@ -24,7 +26,7 @@ export default function Hero({ backgroundColor }: { backgroundColor: string }) {
         </Button>
         <Button
           variant="white"
-          className="rounded-full px-6 py-3 flex items-center gap-2 border border-black"
+          className="rounded-full px-6 py-3 flex items-center gap-2 border"
           icon={<i className="fab fa-github"></i>}
         >
           GitHub

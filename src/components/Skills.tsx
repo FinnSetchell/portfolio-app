@@ -1,17 +1,19 @@
+"use client";
+
 import { SkillCard } from "./SkillCards";
 
-export default function Skills({ backgroundColor }: { backgroundColor: string }) {
+export default function Skills() {
   return (
     <section
       id="skills"
-      style={{ backgroundColor }}
-      className="min-h-screen flex flex-col items-center justify-center px-4 text-gray-900 py-16 pt-16"
+      style={{ backgroundColor: "var(--background)", color: "var(--text)" }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 py-16"
     >
       <div className="flex flex-col items-center justify-center gap-4 text-center mb-8">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl" style={{ color: "var(--text)" }}>
           Skills & Technologies
         </h2>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+        <p className="mx-auto max-w-[700px] md:text-xl" style={{ color: "var(--mutedText)" }}>
           The tools and technologies I work with
         </p>
       </div>

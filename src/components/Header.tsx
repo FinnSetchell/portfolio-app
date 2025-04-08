@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "./ui/Button";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 export default function Header() {
   const handleScroll = (id: string) => {
@@ -18,10 +19,18 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 flex justify-between items-center px-8 py-4 border-b border-gray-200 bg-white/70 backdrop-blur-md">
+    <header
+      style={{
+        backgroundColor: "var(--background)",
+        color: "var(--text)",
+        borderBottom: "1px solid var(--border)",
+      }}
+      className="sticky top-0 z-50 flex justify-between items-center px-8 py-4 backdrop-blur-md"
+    >
       <button
         onClick={() => handleScroll("hero")}
-        className="text-xl font-bold text-gray-700 hover:text-black"
+        className="text-xl font-bold hover:text-opacity-80"
+        style={{ color: "var(--text)" }}
       >
         Finn Setchell
       </button>
@@ -30,7 +39,12 @@ export default function Header() {
           onClick={() => handleScroll("projects")}
           variant="white"
           outline={false}
-          className="text-gray-700"
+          className="px-4 py-2 rounded-md"
+          style={{
+            backgroundColor: "var(--background)",
+            color: "var(--text)",
+            border: "none",
+          }}
         >
           Projects
         </Button>
@@ -38,7 +52,12 @@ export default function Header() {
           onClick={() => handleScroll("skills")}
           variant="white"
           outline={false}
-          className="text-gray-700"
+          className="px-4 py-2 rounded-md"
+          style={{
+            backgroundColor: "var(--background)",
+            color: "var(--text)",
+            border: "none",
+          }}
         >
           Skills
         </Button>
@@ -46,7 +65,12 @@ export default function Header() {
           onClick={() => handleScroll("about")}
           variant="white"
           outline={false}
-          className="text-gray-700"
+          className="px-4 py-2 rounded-md"
+          style={{
+            backgroundColor: "var(--background)",
+            color: "var(--text)",
+            border: "none",
+          }}
         >
           About
         </Button>
@@ -54,7 +78,12 @@ export default function Header() {
           onClick={() => handleScroll("contact")}
           variant="white"
           outline={false}
-          className="text-gray-700"
+          className="px-4 py-2 rounded-md"
+          style={{
+            backgroundColor: "var(--background)",
+            color: "var(--text)",
+            border: "none",
+          }}
         >
           Contact
         </Button>

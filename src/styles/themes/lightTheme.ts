@@ -17,6 +17,8 @@ const lightTheme = {
   blackButton: "#000000", // Black button background
   blackButtonText: "#ffffff", // White text for black buttons
   blackButtonHover: "#4a4a4a", // Hover background for black buttons
+  headerText: "#000000", // Black for headers
+  secondaryText: "#4a4a4a", // Dark gray for secondary text
 };
 
 export default lightTheme;

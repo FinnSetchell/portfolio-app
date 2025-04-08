@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card } from "./ui/Card";
 import { Button } from "./ui/Button";
 
-export default function Contact({ backgroundColor }: { backgroundColor: string }) {
+export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -76,9 +76,8 @@ export default function Contact({ backgroundColor }: { backgroundColor: string }
 
   return (
     <section
-      id="contact"
-      style={{ backgroundColor }}
-      className="min-h-screen flex flex-col items-center justify-center px-4 text-gray-900"
+      style={{ backgroundColor: "var(--secondary)", color: "var(--text)" }}
+      className="min-h-screen flex flex-col items-center justify-center px-4"
     >
       <div className="flex flex-col items-center justify-center gap-4 text-center mb-6">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">

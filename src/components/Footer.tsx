@@ -1,10 +1,19 @@
+"use client";
+
 import { Button } from "./ui/Button";
 
 export default function Footer() {
   return (
-    <footer className="py-6 border-t border-gray-200 bg-gray-100 text-gray-900">
+    <footer
+      style={{
+        backgroundColor: "var(--background)",
+        color: "var(--text)",
+        borderTop: "1px solid var(--border)",
+      }}
+      className="py-6 text-center"
+    >
       <div className="container mx-auto flex flex-col items-center justify-center text-center">
-        <p className="text-sm text-gray-600">
+        <p className="text-sm" style={{ color: "var(--secondaryText)" }}>
           © {new Date().getFullYear()} Finn Setchell. All rights reserved.
         </p>
         <div className="flex gap-4 mt-4">

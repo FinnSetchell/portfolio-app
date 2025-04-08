@@ -1,7 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
-import lightTheme from "../../styles/themes/lightTheme";
+import { ReactNode, CSSProperties } from "react";
 
 interface ButtonProps {
   children?: ReactNode;
@@ -15,6 +14,7 @@ interface ButtonProps {
   icon?: ReactNode; // Icon to display inside the button
   iconPosition?: "left" | "right"; // Position of the icon
   outline?: boolean; // Option to remove the outline
+  style?: CSSProperties; // Inline styles for the button
 }
 
 export function Button({
@@ -29,6 +29,7 @@ export function Button({
   icon,
   iconPosition = "left",
   outline = true,
+  style,
 }: ButtonProps) {
   const isWhite = variant === "white";
 
@@ -42,26 +43,27 @@ export function Button({
         fullWidth ? "w-full" : ""
       } ${className}`}
       style={{
-        backgroundColor: isWhite ? lightTheme.whiteButton : lightTheme.blackButton,
-        color: isWhite ? lightTheme.whiteButtonText : lightTheme.blackButtonText,
+        backgroundColor: isWhite ? "var(--whiteButton)" : "var(--blackButton)",
+        color: isWhite ? "var(--whiteButtonText)" : "var(--blackButtonText)",
         border: outline
-          ? `1px solid ${isWhite ? lightTheme.whiteButtonBorder : lightTheme.blackButton}`
+          ? `1px solid ${isWhite ? "var(--whiteButtonBorder)" : "var(--blackButton)"}`
           : "none",
         cursor: disabled ? "not-allowed" : "pointer",
         opacity: disabled ? 0.6 : 1,
+        ...style, // Merge inline styles
       }}
       onMouseOver={(e) => {
         if (!disabled) {
           (e.target as HTMLButtonElement).style.backgroundColor = isWhite
-            ? lightTheme.whiteButtonHover
-            : lightTheme.blackButtonHover;
+            ? "var(--whiteButtonHover)"
+            : "var(--blackButtonHover)";
         }
       }}
       onMouseOut={(e) => {
         if (!disabled) {
           (e.target as HTMLButtonElement).style.backgroundColor = isWhite
-            ? lightTheme.whiteButton
-            : lightTheme.blackButton;
+            ? "var(--whiteButton)"
+            : "var(--blackButton)";
         }
       }}
     >

@@ -4,16 +4,15 @@ import Skills from "../components/Skills";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Modding from "../components/Modding";
-import lightTheme from "../styles/themes/lightTheme";
 
 export default function Home() {
   const sections = [
-    { component: <Hero backgroundColor={lightTheme.background} />, background: lightTheme.background },
-    { component: <Projects backgroundColor={lightTheme.secondary} />, background: lightTheme.secondary },
-    { component: <Skills backgroundColor={lightTheme.background} />, background: lightTheme.background },
-    { component: <Modding backgroundColor={lightTheme.secondary} />, background: lightTheme.secondary },
-    { component: <About backgroundColor={lightTheme.background} />, background: lightTheme.background },
-    { component: <Contact backgroundColor={lightTheme.secondary} />, background: lightTheme.secondary },
+    { component: <Hero />, cssVariable: "var(--background)" },
+    { component: <Projects />, cssVariable: "var(--secondary)" },
+    { component: <Skills />, cssVariable: "var(--background)" },
+    { component: <Modding />, cssVariable: "var(--secondary)" },
+    { component: <About />, cssVariable: "var(--background)" },
+    { component: <Contact />, cssVariable: "var(--secondary)" },
   ];
 
   return (
@@ -21,7 +20,7 @@ export default function Home() {
       {sections.map((section, index) => (
         <div
           key={index}
-          style={{ backgroundColor: section.background }}
+          style={{ backgroundColor: section.cssVariable }}
           className="transition-colors duration-300"
         >
           {section.component}

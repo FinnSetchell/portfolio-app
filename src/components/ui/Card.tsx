@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import lightTheme from "../../styles/themes/lightTheme";
 
 interface CardProps {
   children: ReactNode;
@@ -14,8 +13,8 @@ export function Card({ children, className = "", hoverEffect = false }: CardProp
         hoverEffect ? "transition-transform duration-300 hover:scale-105" : ""
       }`}
       style={{
-        backgroundColor: lightTheme.cardBackground,
-        boxShadow: `0 4px 6px ${lightTheme.cardShadow}`,
+        backgroundColor: "var(--cardBackground)",
+        boxShadow: `0 4px 6px var(--cardShadow)`,
       }}
     >
       {children}

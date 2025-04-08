@@ -28,13 +28,21 @@ export function ProjectCard({
         />
       </div>
       <div className="p-4">
-        <h3 className="text-xl font-bold">{title}</h3>
-        <p className="text-sm text-gray-600 mb-4">{description}</p>
+        <h3 className="text-xl font-bold" style={{ color: "var(--headerText)" }}>
+          {title}
+        </h3>
+        <p className="text-sm mb-4" style={{ color: "var(--secondaryText)" }}>
+          {description}
+        </p>
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map((tag) => (
             <span
               key={tag}
-              className="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-1 rounded"
+              style={{
+                backgroundColor: "var(--secondary)",
+                color: "var(--text)",
+              }}
+              className="text-xs font-medium px-2 py-1 rounded"
             >
               {tag}
             </span>
@@ -45,7 +53,11 @@ export function ProjectCard({
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded hover:bg-gray-100 transition"
+            className="flex items-center gap-2 px-4 py-2 border rounded hover:bg-gray-100 transition"
+            style={{
+              borderColor: "var(--border)",
+              color: "var(--text)",
+            }}
           >
             <i className="fab fa-github"></i> Code
           </Link>
@@ -53,7 +65,11 @@ export function ProjectCard({
             href={demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
+            className="flex items-center gap-2 px-4 py-2 rounded hover:bg-gray-800 transition"
+            style={{
+              backgroundColor: "var(--blackButton)",
+              color: "var(--blackButtonText)",
+            }}
           >
             <i className="fas fa-external-link-alt"></i> Demo
           </Link>

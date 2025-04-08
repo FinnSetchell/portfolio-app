@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 
-export default function Modding({ backgroundColor }: { backgroundColor: string }) {
+export default function Modding() {
   const images = [
     "/modding/modding1.png",
     "/modding/modding2.png",
@@ -84,15 +84,17 @@ export default function Modding({ backgroundColor }: { backgroundColor: string }
 
   return (
     <section
-      id="modding"
-      style={{ backgroundColor }}
-      className="min-h-screen flex flex-col items-center justify-center px-4 py-16 sm:py-24 lg:py-32 text-gray-900"
+      style={{ backgroundColor: "var(--secondary)", color: "var(--text)" }}
+      className="min-h-screen flex flex-col items-center justify-center px-4 py-16 sm:py-24 lg:py-32"
     >
       <div className="flex flex-col items-center justify-center gap-4 text-center mb-8">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        <h2
+          className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+          style={{ color: "var(--text)" }}
+        >
           Modding
         </h2>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
+        <p className="mx-auto max-w-[700px] md:text-xl" style={{ color: "var(--mutedText)" }}>
           Highlighting my passion for creating Minecraft mods and tools.
         </p>
       </div>
@@ -139,16 +141,20 @@ export default function Modding({ backgroundColor }: { backgroundColor: string }
       {/* Download Counters */}
       <div className="flex gap-8 mb-8 sm:mb-12 lg:mb-16">
         <div className="flex flex-col items-center">
-          <h3 className="text-xl font-bold">CurseForge</h3>
-          <p className="text-2xl font-semibold text-gray-700">
+          <h3 className="text-xl font-bold" style={{ color: "var(--text)" }}>
+            CurseForge
+          </h3>
+          <p className="text-2xl font-semibold" style={{ color: "var(--mutedText)" }}>
             {curseForgeDownloads !== null && !isNaN(curseForgeDownloads)
               ? `${formatNumber(curseForgeDownloads)} Downloads`
               : "Loading..."}
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <h3 className="text-xl font-bold">Modrinth</h3>
-          <p className="text-2xl font-semibold text-gray-700">
+          <h3 className="text-xl font-bold" style={{ color: "var(--text)" }}>
+            Modrinth
+          </h3>
+          <p className="text-2xl font-semibold" style={{ color: "var(--mutedText)" }}>
             {modrinthTotalDownloads !== null && !isNaN(modrinthTotalDownloads)
               ? `${formatNumber(modrinthTotalDownloads)} Downloads`
               : "Loading..."}
@@ -158,16 +164,16 @@ export default function Modding({ backgroundColor }: { backgroundColor: string }
 
       {/* Description */}
       <div className="max-w-[700px] text-left space-y-6 sm:space-y-8 lg:space-y-10">
-        <p className="text-lg text-gray-700">
+        <p className="text-lg" style={{ color: "var(--text)" }}>
           I’ve been developing Minecraft mods since I was a teenager, turning what started as a hobby into a full-on venture. Over time, my mods have grown in complexity, scale, and popularity — now totaling over <strong>58 million downloads</strong> across several platforms.
         </p>
-        <p className="text-lg text-gray-700">
+        <p className="text-lg" style={{ color: "var(--text)" }}>
           My work focuses on expanding Minecraft’s gameplay with procedural structures, custom items, and gameplay mechanics built for performance, compatibility, and creativity. I take a modular, scalable approach to development — quickly building a base version, then expanding on features.
         </p>
-        <p className="text-lg text-gray-700">
+        <p className="text-lg" style={{ color: "var(--text)" }}>
           To support and formalize this work, I’ve established a sole proprietorship business. This allows me to collaborate with other developers, hire creators, and manage publishing through platforms like CurseForge. I also run modded servers, manage communities, and solve the many technical and creative challenges that come with live multiplayer environments.
         </p>
-        <p className="text-lg text-gray-700">
+        <p className="text-lg" style={{ color: "var(--text)" }}>
           Whether it’s creating automated tools for mod development, debugging complex mod interactions, or just building something players will love, modding has become both a creative outlet and a serious part of my journey as a developer.
         </p>
       </div>
