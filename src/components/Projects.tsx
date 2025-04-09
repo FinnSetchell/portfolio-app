@@ -27,46 +27,6 @@ export default function Projects() {
           demoUrl="https://project1-demo.com"
         />
         <ProjectCard
-          title="Task Management App"
-          description="A productivity application for managing tasks, projects, and team collaboration with real-time updates."
-          tags={["JavaScript", "API"]}
-          image=""
-          githubUrl="https://github.com/FinnSetchell/project2"
-          demoUrl="https://project2-demo.com"
-        />
-        <ProjectCard
-          title="Weather Dashboard"
-          description="A weather application that provides real-time forecasts, historical data, and location-based weather information."
-          tags={["TypeScript", "GraphQL"]}
-          image=""
-          githubUrl="https://github.com/FinnSetchell/project3"
-          demoUrl="https://project3-demo.com"
-        />
-        <ProjectCard
-          title="Portfolio Website"
-          description="A personal portfolio website showcasing my projects, skills, and experience."
-          tags={["Next.js", "Tailwind", "TypeScript"]}
-          image=""
-          githubUrl="https://github.com/FinnSetchell/portfolio"
-          demoUrl="https://portfolio-demo.com"
-        />
-        <ProjectCard
-          title="Chat Application"
-          description="A real-time chat application with WebSocket support for seamless communication."
-          tags={["Node.js", "Socket.IO", "React"]}
-          image=""
-          githubUrl="https://github.com/FinnSetchell/chat-app"
-          demoUrl="https://chat-app-demo.com"
-        />
-        <ProjectCard
-          title="Fitness Tracker"
-          description="A fitness tracking app to monitor workouts, progress, and goals."
-          tags={["React Native", "Firebase"]}
-          image=""
-          githubUrl="https://github.com/FinnSetchell/fitness-tracker"
-          demoUrl="https://fitness-tracker-demo.com"
-        />
-        <ProjectCard
           title="Word Game"
           description="A WPF app with customizable grids where users swap letters to form words with minimal swaps. Earned an A* in my Computer Science A-Level practical."
           tags={["C#", "WPF", "Game Development"]}

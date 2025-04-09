@@ -24,39 +24,9 @@ export default function Skills() {
           icon={<i className="fab fa-java"></i>}
         />
         <SkillCard
-          name="React"
-          description="Proficient in building dynamic and responsive web applications using React."
-          icon={<i className="fab fa-react"></i>}
-        />
-        <SkillCard
-          name="Next.js"
-          description="Skilled in creating server-rendered React applications with Next.js."
-          icon={<i className="fas fa-layer-group"></i>}
-        />
-        <SkillCard
-          name="Tailwind CSS"
-          description="Expert in designing modern and responsive UIs using Tailwind CSS."
-          icon={<i className="fas fa-paint-brush"></i>}
-        />
-        <SkillCard
-          name="TypeScript"
-          description="Experienced in using TypeScript for building type-safe and maintainable applications."
-          icon={<i className="fas fa-code"></i>}
-        />
-        <SkillCard
-          name="GraphQL"
-          description="Skilled in designing and querying APIs using GraphQL for efficient data fetching."
-          icon={<i className="fas fa-database"></i>}
-        />
-        <SkillCard
           name="Git"
           description="Proficient in version control and collaboration using Git and GitHub."
           icon={<i className="fab fa-git-alt"></i>}
-        />
-        <SkillCard
-          name="Docker"
-          description="Experienced in containerizing applications and managing environments using Docker."
-          icon={<i className="fab fa-docker"></i>}
         />
         <SkillCard
           name="Python"
@@ -67,16 +37,6 @@ export default function Skills() {
           name="JSON"
           description="Experienced in working with JSON for data exchange and API integrations."
           icon={<i className="fas fa-file-code"></i>}
-        />
-        <SkillCard
-          name="Node.js"
-          description="Skilled in building scalable server-side applications using Node.js."
-          icon={<i className="fab fa-node-js"></i>}
-        />
-        <SkillCard
-          name="MongoDB"
-          description="Proficient in using MongoDB for building and managing NoSQL databases."
-          icon={<i className="fas fa-database"></i>}
         />
         <SkillCard
           name="Fusion 360"
