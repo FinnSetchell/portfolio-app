@@ -67,12 +67,12 @@ export default function Projects() {
           demoUrl="https://fitness-tracker-demo.com"
         />
         <ProjectCard
-          title="Fitness Tracker"
-          description="A fitness tracking app to monitor workouts, progress, and goals."
-          tags={["React Native", "Firebase"]}
-          image=""
-          githubUrl="https://github.com/FinnSetchell/fitness-tracker"
-          demoUrl="https://fitness-tracker-demo.com"
+          title="Word Game"
+          description="A WPF app with customizable grids where users swap letters to form words with minimal swaps. Earned an A* in my Computer Science A-Level practical."
+          tags={["C#", "WPF", "Game Development"]}
+          image="projects/wordgame.png"
+          githubUrl="https://github.com/FinnSetchell/WordGameWpfApp"
+          demoUrl="https://github.com/FinnSetchell/WordGameWpfApp/releases/tag/wpf"
         />
       </div>
     </section>
