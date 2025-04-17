@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Modding() {
   const images = [
@@ -114,10 +115,12 @@ export default function Modding() {
                 maxWidth: "400px",
               }}
             >
-              <img
+              <Image
                 src={image}
                 alt={`Modding Image ${index + 1}`}
-                className="w-full h-auto object-contain rounded-lg shadow-lg"
+                width={400}
+                height={300}
+                className="rounded-lg shadow-lg"
               />
             </div>
           ))}

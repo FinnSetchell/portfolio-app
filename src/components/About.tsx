@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function About() {
   return (
     <section
@@ -8,9 +10,11 @@ export default function About() {
       className="min-h-screen flex flex-col md:flex-row items-center justify-center px-4"
     >
       <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
-        <img
-          src={"/placeholder.svg"}
-          alt="About Me"
+        <Image
+          src="/path/to/image.png"
+          alt="Description"
+          width={500}
+          height={300}
           className="rounded-lg shadow-lg max-w-full h-auto md:max-h-[400px]"
         />
       </div>

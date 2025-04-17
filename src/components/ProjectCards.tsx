@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Card } from "./ui/Card";
 
 interface ProjectCardProps {
@@ -21,9 +22,11 @@ export function ProjectCard({
   return (
     <Card className="overflow-hidden flex flex-col h-full" hoverEffect>
       <div className="aspect-video overflow-hidden">
-        <img
+        <Image
           src={image}
           alt={"Project image"}
+          width={500}
+          height={300}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
         />
       </div>

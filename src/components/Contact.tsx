@@ -91,7 +91,7 @@ export default function Contact() {
         <Card>
           <h3 className="text-xl font-semibold mb-2">Contact Form</h3>
           <p className="text-sm text-gray-500 mb-4">
-            Fill out the form below and I'll get back to you as soon as possible.
+            Fill out the form below and I&apos;ll get back to you as soon as possible.
           </p>
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

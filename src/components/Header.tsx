@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "./ui/Button";
-import ThemeToggleButton from "./ThemeToggleButton";
 
 export default function Header() {
   const handleScroll = (id: string) => {
