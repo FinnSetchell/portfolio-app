@@ -22,7 +22,7 @@ export default function Projects() {
           title="Word Game"
           description="A WPF app with customizable grids where users swap letters to form words with minimal swaps. Earned an A* in my Computer Science A-Level practical."
           tags={["C#", "WPF", "Game Development"]}
-          image="projects/wordgame.png"
+          image="/projects/wordgame.png"
           githubUrl="https://github.com/FinnSetchell/WordGameWpfApp"
           demoUrl="https://github.com/FinnSetchell/WordGameWpfApp/releases/tag/wpf"
         />
@@ -30,7 +30,7 @@ export default function Projects() {
           title="JSON Generator"
           description="A Python script that uses a template to ask the user questions and generates JSON files for structure mods. My first experience with Python."
           tags={["Python", "JSON", "Automation"]}
-          image="projects/json_generator.png"
+          image="/projects/json_generator.png"
           githubUrl="https://github.com/FinnSetchell/JSON_Generator"
           demoUrl="https://github.com/FinnSetchell/JSON_Generator"
         />
