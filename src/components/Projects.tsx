@@ -30,6 +30,7 @@ export default function Projects() {
           title="JSON Generator"
           description="A Python script that uses a template to ask the user questions and generates JSON files for structure mods. My first experience with Python."
           tags={["Python", "JSON", "Automation"]}
+          image="projects/json_generator.png"
           githubUrl="https://github.com/FinnSetchell/JSON_Generator"
           demoUrl="https://github.com/FinnSetchell/JSON_Generator"
         />

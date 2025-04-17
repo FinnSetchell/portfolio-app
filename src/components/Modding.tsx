@@ -165,7 +165,7 @@ export default function Modding() {
       {/* Description */}
       <div className="max-w-[700px] text-left space-y-6 sm:space-y-8 lg:space-y-10">
         <p className="text-lg" style={{ color: "var(--text)" }}>
-          I’ve been developing Minecraft mods since I was a teenager, turning what started as a hobby into a full-on venture. Over time, my mods have grown in complexity, scale, and popularity — now totaling over <strong>58 million downloads</strong> across several platforms.
+          I’ve been developing Minecraft mods since I was a teenager, turning what started as a hobby into a full-on venture. Over time, my mods have grown in complexity, scale, and popularity — now totaling over <strong>60 million downloads</strong> across several platforms.
         </p>
         <p className="text-lg" style={{ color: "var(--text)" }}>
           My work focuses on expanding Minecraft’s gameplay with procedural structures, custom items, and gameplay mechanics built for performance, compatibility, and creativity. I take a modular, scalable approach to development — quickly building a base version, then expanding on features.
